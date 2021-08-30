@@ -30,7 +30,7 @@ def get_filters():
         
     # Get user input for month (all, january, february, ... , june)
     while True:
-        global month; # in order to chane value of a global variable 
+        global month; # in order to change value of a global variable 
         month = str(input('Which month you want to filter by? January, February, March, April, May, June? or \'all\' to apply no month filter.\n').title())
         if month not in ('January', 'February', 'March', 'April', 'May', 'June','All'):
             print('This is invalid input!')
