@@ -5,6 +5,7 @@ import numpy as np
 CITY_DATA = { 'Chicago': 'chicago.csv',
               'New York': 'new_york_city.csv',
               'Washington': 'washington.csv' }
+			  
 city = '' #Creating global city variable
 month = '' #Creating global month variable
 day = '' #Creating global day variable
@@ -18,7 +19,7 @@ def get_filters():
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
-    print('Hello! Let\'s explore some US bikeshare data!')
+    print('\nHello! Let\'s explore some US bikeshare data!')
     # Get user input for city (chicago, new york, washington). HINT: while loop used to handle invalid inputs
     while True:
         global city; # in order to change value of a global variable
@@ -27,19 +28,19 @@ def get_filters():
 		
 		# To keep running the code until the user input the required one
         if city not in ('Chicago','New York','Washington'):
-           print('This is invalid input!')
+           print('\nThis is invalid input!\n')
         else:
             break
         
     # Get user input for month (all, january, february, ... , june)
     while True:
         global month; # in order to change value of a global variable 
-		# Changing month value to be as the user input
-        month = str(input('Which month you want to filter by? January, February, March, April, May, June? or \'all\' to apply no month filter.\n').title())
+		# Changing month value to be as the user input 
+        month = str(input('\nWhich month you want to filter by? January, February, March, April, May, June? or \'all\' to apply no month filter.\n').title())
 		
 		# To keep running the code until the user input the required one
         if month not in ('January', 'February', 'March', 'April', 'May', 'June','All'):
-            print('This is invalid input!')
+            print('\nThis is invalid input!\n')
         else:
             break
       
@@ -47,11 +48,11 @@ def get_filters():
     while True:
         global day; #in order to change value of a global variable
 		# Changing day value to be as the user input
-        day = str(input('Which day you want to filter by? Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday? or \'all\' to apply no day filter.\n').title())
-		
+		day = str(input('\nWhich day you want to filter by? Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday? or \'all\' to apply no day filter.\n').title())
+
 		# To keep running the code until the user input the required one
         if day not in ('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'All'):
-            print('This is invalid input!')
+            print('\nThis is invalid input!\n')
         else:
             break
            
@@ -108,11 +109,11 @@ def time_stats(df):
 
     # display the most common day of week
     common_day = df['day_of_week'].mode()[0]
-    print('What is the most popular day for travelling?\n', common_day)
+    print('\nWhat is the most popular day for travelling?\n', common_day)
 
     # display the most common start hour
     common_hour = df['Start Time'].mode()[0]
-    print('What is the most popular hour of the day to start your travels?\n', common_hour)
+    print('\nWhat is the most popular hour of the day to start your travels?\n', common_hour)
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -194,16 +195,20 @@ def user_stats(df):
 
 def display_data(df):
     '''Display 5 row data '''
+	
     while True:
         #take an input from the user.
         view_data = input('\nWould you like to view 5 rows of individual trip data? Enter \'yes\' or \'no\'\n').lower()
+		
         #handling invalid input.
         if view_data not in ('yes', 'no'):  
             print('This is invalid input!')
         else:
             break
+			
     start_loc = 0
     while (view_data != 'no'):
+	
         #print only 5 rows of row data.
         print(df.iloc[start_loc:(start_loc + 5 )]) 
         start_loc += 5
@@ -211,6 +216,7 @@ def display_data(df):
         #ask again to view another 5 rows.
         while True:
             view_data = input('\nWould you like to view 5 rows of individual trip data? Enter \'yes\' or \'no\'\n').lower()
+			
             #handling invalid input.
             if view_data not in ('yes', 'no'):  
                 print('This is invalid input!')
@@ -222,14 +228,15 @@ def main():
     while True:
         city, month, day = get_filters()
         df = load_data(city, month, day)
-
         
         time_stats(df)          
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
         display_data(df)
+		
         restart = input('\nWould you like to restart? Enter yes or no.\n')
+		
         if restart.lower() != 'yes':
             break
 
