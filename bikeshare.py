@@ -22,6 +22,7 @@ def get_filters():
     # Get user input for city (chicago, new york, washington). HINT: while loop used to handle invalid inputs
     while True:
         global city; # in order to change value of a global variable
+		# Changing city value to be as the user input
         city = str(input('Would you like to see data for Chicago, New York, or Washington?\n').title())
         if city not in ('Chicago','New York','Washington'):
            print('This is invalid input!')
@@ -31,6 +32,7 @@ def get_filters():
     # Get user input for month (all, january, february, ... , june)
     while True:
         global month; # in order to change value of a global variable 
+		# Changing month value to be as the user input
         month = str(input('Which month you want to filter by? January, February, March, April, May, June? or \'all\' to apply no month filter.\n').title())
         if month not in ('January', 'February', 'March', 'April', 'May', 'June','All'):
             print('This is invalid input!')
@@ -40,6 +42,7 @@ def get_filters():
     # Get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
         global day; #in order to change value of a global variable
+		# Changing day value to be as the user input
         day = str(input('Which day you want to filter by? Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday? or \'all\' to apply no day filter.\n').title())
         if day not in ('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'All'):
             print('This is invalid input!')
