@@ -19,31 +19,31 @@ def get_filters():
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
-    print('Hello! Let\'s explore some US bikeshare data!')
+    print('\nHello! Let\'s explore some US bikeshare data!')
     # Get user input for city (chicago, new york, washington). HINT: while loop used to handle invalid inputs
     while True:
         global city; # in order to change value of a global variable
         city = str(input('Would you like to see data for Chicago, New York, or Washington?\n').title())
         if city not in ('Chicago','New York','Washington'):
-           print('This is invalid input!')
+           print('\nThis is invalid input!\n')
         else:
             break
         
     # Get user input for month (all, january, february, ... , june)
     while True:
         global month; # in order to chane value of a global variable 
-        month = str(input('Which month you want to filter by? January, February, March, April, May, June? or \'all\' to apply no month filter.\n').title())
+        month = str(input('\nWhich month you want to filter by? January, February, March, April, May, June? or \'all\' to apply no month filter.\n').title())
         if month not in ('January', 'February', 'March', 'April', 'May', 'June','All'):
-            print('This is invalid input!')
+            print('\nThis is invalid input!\n')
         else:
             break
       
     # Get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
         global day; #in order to change value of a global variable
-        day = str(input('Which day you want to filter by? Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday? or \'all\' to apply no day filter.\n').title())
+        day = str(input('\nWhich day you want to filter by? Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday? or \'all\' to apply no day filter.\n').title())
         if day not in ('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'All'):
-            print('This is invalid input!')
+            print('\nThis is invalid input!\n')
         else:
             break
            
@@ -100,11 +100,11 @@ def time_stats(df):
 
     # display the most common day of week
     common_day = df['day_of_week'].mode()[0]
-    print('What is the most popular day for travelling?\n', common_day)
+    print('\nWhat is the most popular day for travelling?\n', common_day)
 
     # display the most common start hour
     common_hour = df['Start Time'].mode()[0]
-    print('What is the most popular hour of the day to start your travels?\n', common_hour)
+    print('\nWhat is the most popular hour of the day to start your travels?\n', common_hour)
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
