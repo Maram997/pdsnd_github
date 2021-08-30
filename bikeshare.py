@@ -5,6 +5,7 @@ import numpy as np
 CITY_DATA = { 'Chicago': 'chicago.csv',
               'New York': 'new_york_city.csv',
               'Washington': 'washington.csv' }
+			  
 city = '' #Creating global city variable
 month = '' #Creating global month variable
 day = '' #Creating global day variable
@@ -185,16 +186,20 @@ def user_stats(df):
 
 def display_data(df):
     '''Display 5 row data '''
+	
     while True:
         #take an input from the user.
         view_data = input('\nWould you like to view 5 rows of individual trip data? Enter \'yes\' or \'no\'\n').lower()
+		
         #handling invalid input.
         if view_data not in ('yes', 'no'):  
             print('This is invalid input!')
         else:
             break
+			
     start_loc = 0
     while (view_data != 'no'):
+	
         #print only 5 rows of row data.
         print(df.iloc[start_loc:(start_loc + 5 )]) 
         start_loc += 5
@@ -202,6 +207,7 @@ def display_data(df):
         #ask again to view another 5 rows.
         while True:
             view_data = input('\nWould you like to view 5 rows of individual trip data? Enter \'yes\' or \'no\'\n').lower()
+			
             #handling invalid input.
             if view_data not in ('yes', 'no'):  
                 print('This is invalid input!')
@@ -213,14 +219,15 @@ def main():
     while True:
         city, month, day = get_filters()
         df = load_data(city, month, day)
-
         
         time_stats(df)          
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
         display_data(df)
+		
         restart = input('\nWould you like to restart? Enter yes or no.\n')
+		
         if restart.lower() != 'yes':
             break
 
