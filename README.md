@@ -9,6 +9,7 @@ The project is about bikeshare, Bicycle-sharing system for renting bicycles, dat
 > 1. Chicago
 > 2. New York City
 > 3. Washington
+
 This project provides a descriptive statistics about the dataset based on the user's filteing of data.
 
 ### Files used
